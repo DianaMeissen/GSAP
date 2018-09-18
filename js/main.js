@@ -6,7 +6,7 @@ $(document).ready(function(){
 		counter = 400;
 
 	$(splitWords).each(function(index){
-		var markup = '<span style="position: relative; font-size:60px; right:' + counter + ' px"> ' + splitWords[index] + '</span>'
+		var markup = '<span style="position: relative; font-size:60px; right:' + counter + 'px"> ' + splitWords[index] + '</span>'
 	wordArray.push(markup);
 	counter = counter + 200;
 	});
@@ -17,6 +17,7 @@ $(document).ready(function(){
 	$('.wrapper').on('mouseenter', function(){
 	var tl = new TimelineMax();
 		
-		tl.staggerTo($('#text1 span'), 0.5, {right: 0}, 1);
+		tl.to(text, 1, {rotation: -180, left: -100, scale: 0.5, ease: Bounce.easeOut})
+		.staggerTo($('#text1 span'), 0.5, {right: 0}, 1);
 	});
 });
